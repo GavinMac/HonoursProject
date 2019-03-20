@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--These ranks are based off the alignment system in the game 'Dungeons and Dragons'. They have been formatted into XML-->
+<root>
+  <ALIGNMENTS>
+
+    <Lawful>
+      <Threshold>50</Threshold>
+      <Good>
+        <Threshold>200</Threshold>
+        <color>#b6e6ff</color>
+        <description>
+          Honorable and Humane
+        </description>
+      </Good>
+      <Neutral>
+        <Threshold>50</Threshold>
+        <color>#00a8ff</color>
+        <description>
+          Practical and Humane
+        </description>
+      </Neutral>
+      <Evil>
+        <Threshold>100</Threshold>
+        <color>#003a58</color>
+        <description>
+          Independent and Humane
+        </description>
+      </Evil>
+    </Lawful>
+
+    <Neutral>
+      <Threshold>0</Threshold>
+      <Good>
+        <Threshold>49</Threshold>
+        <color>#f2f2f2</color>
+        <description>
+          Honorable and Realistic
+        </description>
+      </Good>
+      <Neutral>
+        <Threshold>0</Threshold>
+        <color>#979797</color>
+        <description>
+          Practical and Realistic
+        </description>
+      </Neutral>
+      <Evil>
+        <Threshold>-49</Threshold>
+        <color>#202020</color>
+        <description>
+          Independent and Realistic
+        </description>
+      </Evil>
+    </Neutral>
+
+    <Chaotic>
+      <Threshold>-50</Threshold>
+      <Good>
+        <Threshold>-100</Threshold>
+        <color>#ffb6b6</color>
+        <description>
+          Honorable and Determined
+        </description>
+      </Good>
+      <Neutral>
+        <Threshold>-50</Threshold>
+        <color>#ff0000</color>
+        <description>
+          Practical and Determined
+        </description>
+      </Neutral>
+      <Evil>
+        <Threshold>-200</Threshold>
+        <color>#580000</color>
+        <description>
+          Independent and Determined
+        </description>
+      </Evil>
+    </Chaotic>
+    
+  </ALIGNMENTS>
+</root>
