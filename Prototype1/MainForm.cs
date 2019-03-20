@@ -72,7 +72,7 @@ namespace Prototype1
             var device = GetSelectedDevice();
             float volume = device.AudioMeterInformation.MasterPeakValue * 100;
             RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume);
-            await Task.Run(() => rankCalc.CalculateRank());
+            Task.Run(() => rankCalc.CalculateRank());
 
             logTextBox.Text += e.Result.Text + " ";
 
