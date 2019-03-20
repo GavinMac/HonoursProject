@@ -7,7 +7,6 @@ C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\Debug\Prototype1.csproj.CoreCompileInputs.cache
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\Debug\Prototype1.exe
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\Debug\Prototype1.pdb
-C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\Debug\Prototype1.csprojAssemblyReference.cache
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\PlayersDb.db
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\NAudio.dll
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\Newtonsoft.Json.dll
@@ -24,3 +23,5 @@ C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\Dapper.Contrib.dll
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\Dapper.Contrib.xml
+C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\WordLibrary\badwords.json
+C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\WordLibrary\manners.json

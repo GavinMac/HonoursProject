@@ -68,11 +68,13 @@ namespace Prototype1
 
         private void RecEngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            
+            Player tempPlayerObj = new Player();
             var device = GetSelectedDevice();
             float volume = device.AudioMeterInformation.MasterPeakValue * 100;
             RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume);
             Task.Run(() => rankCalc.CalculateRank());
+            tempPlayerObj = rankCalc.Player;
+            SetCurrentPlayer(tempPlayerObj, GetPlayerRankDetails(tempPlayerObj));
 
             logTextBox.Text += e.Result.Text + " ";
 
