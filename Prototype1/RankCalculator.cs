@@ -46,11 +46,11 @@ namespace Prototype1
                 {
                     if (swearWords.Contains(word.Text))
                     {
-                        Player.SwearCount++;
+                        Player.SwearCount = Player.SwearCount + 1;
                     }
                     else if (mannersWords.Contains(word.Text))
                     {
-                        Player.MannersCount++;
+                        Player.MannersCount = Player.MannersCount + 1;
                     }
                 }
             }
@@ -63,7 +63,7 @@ namespace Prototype1
         /// <returns></returns>
         private void CheckVolume()
         {
-            if (Volume > 50)
+            if (Volume > 30)
             {
                 Player.ShoutScore = Player.ShoutScore + (int)Math.Round(Volume) / 2;
             }

@@ -75,6 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.BackColor = System.Drawing.Color.Gray;
             this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logTextBox.ForeColor = System.Drawing.Color.White;
             this.logTextBox.Location = new System.Drawing.Point(222, 164);
             this.logTextBox.Name = "logTextBox";
@@ -232,7 +233,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UserRankListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.UserRankListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserRankListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserRankListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserRankListView.ForeColor = System.Drawing.Color.White;
             this.UserRankListView.Location = new System.Drawing.Point(5, 184);
             this.UserRankListView.Margin = new System.Windows.Forms.Padding(5);
