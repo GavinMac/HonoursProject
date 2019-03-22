@@ -62,7 +62,9 @@ namespace Prototype1
         {
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                connection.Execute("INSERT into Players WHERE Id = @Id", player);
+                //connection.Execute("UPDATE Players SET Id = @Id", player);
+                connection.Open();
+                connection.Update(player);
             }
         }
 
@@ -74,7 +76,7 @@ namespace Prototype1
         {
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                connection.Execute("DELETE FROM Players WHERE Id = @Id", player);
+                connection.Execute("DELETE FROM Players WHERE Id = @Id", player);        
             }
         }
 

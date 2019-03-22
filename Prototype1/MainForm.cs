@@ -39,7 +39,7 @@ namespace Prototype1
 
         }
 
-
+        //Enable mic and stat speech recognition if a device is chosen.
         private void btnEnableMic_Click(object sender, EventArgs e)
         {
 
@@ -58,6 +58,7 @@ namespace Prototype1
 
         }
 
+        //Disable mic
         private void btnDisableMic_Click(object sender, EventArgs e)
         {
             recEngine.RecognizeAsyncStop();
@@ -66,8 +67,14 @@ namespace Prototype1
             timer.Enabled = false;
         }
 
+        /// <summary>
+        /// Speech recognized event handler - when speech is detectd, this method will run.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RecEngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            logTextBox.Text += e.Result.Text + " ";
             Player tempPlayerObj = new Player();
             var device = GetSelectedDevice();
             float volume = device.AudioMeterInformation.MasterPeakValue * 100;
@@ -76,8 +83,8 @@ namespace Prototype1
             tempPlayerObj = rankCalc.Player;
             SetCurrentPlayer(tempPlayerObj, GetPlayerRankDetails(tempPlayerObj));
 
-            logTextBox.Text += e.Result.Text + " ";
-
+            //Player rank details will be updated and saved straight into the database as they speak.
+            SQLiteDataAccess.SavePlayer(tempPlayerObj);       
         }
 
         
@@ -105,6 +112,7 @@ namespace Prototype1
                 Player currentPlayer = new Player();
                 currentPlayer = playerListForm.SelectedPlayer;
                 SetCurrentPlayer(currentPlayer, GetPlayerRankDetails(currentPlayer));
+                logTextBox.Clear();
             }
             else
             {

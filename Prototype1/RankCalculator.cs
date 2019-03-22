@@ -18,6 +18,7 @@ namespace Prototype1
         private HashSet<string> swearWords = JsonConvert.DeserializeObject<HashSet<string>>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\badwords.json"));
         private HashSet<string> mannersWords = JsonConvert.DeserializeObject<HashSet<string>>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\manners.json"));
 
+
         public RankCalculator(Player player, RecognitionResult speechInput, float volume)
         {
             Player = player;
@@ -39,7 +40,7 @@ namespace Prototype1
         /// </summary>
         /// <returns></returns>
         private void CheckWords()
-        {           
+        {
             if (SpeechInput.Confidence > 0.5)
             {
                 foreach (RecognizedWordUnit word in SpeechInput.Words)
@@ -54,7 +55,6 @@ namespace Prototype1
                     }
                 }
             }
-
         }
 
         /// <summary>
@@ -65,11 +65,32 @@ namespace Prototype1
         {
             if (Volume > 30)
             {
-                Player.ShoutScore = Player.ShoutScore + (int)Math.Round(Volume) / 2;
+                Player.ShoutScore = Player.ShoutScore + (int)Math.Round(Volume)/2;
             }
-            else if (Volume <= 5)
+            else if (Volume <= 2)
             {
                 Player.QuietScore = Player.QuietScore + (int)Math.Round(Volume);
+            }
+        }
+
+        private void CalculateTotalScore()
+        {
+
+            if(Player.ShoutScore > Player.QuietScore)
+            {
+                Player.TotalScore = Player.TotalScore - Player.ShoutScore;
+            }
+            else if (Player.ShoutScore < Player.QuietScore)
+            {
+                Player.TotalScore = Player.TotalScore + Player.QuietScore;
+            }
+            else if(Player.SwearCount > Player.MannersCount)
+            {
+                Player.TotalScore = Player.TotalScore - Player.SwearCount;
+            }
+            else if (Player.SwearCount < Player.MannersCount)
+            {
+                Player.TotalScore = Player.TotalScore + Player.MannersCount;
             }
         }
 
