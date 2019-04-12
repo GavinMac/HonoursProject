@@ -91,6 +91,9 @@
     <Compile Include="RankCalculator.cs" />
     <Compile Include="SQLiteDataAccess.cs" />
     <Content Include="refreshIcon.png" />
+    <Content Include="Resources\profileIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

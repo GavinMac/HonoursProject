@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnEnableMic = new System.Windows.Forms.Button();
             this.logTextBox = new System.Windows.Forms.RichTextBox();
@@ -75,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.BackColor = System.Drawing.Color.Gray;
             this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.logTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logTextBox.ForeColor = System.Drawing.Color.White;
             this.logTextBox.Location = new System.Drawing.Point(222, 164);
             this.logTextBox.Name = "logTextBox";
@@ -246,9 +247,11 @@
             // PlayerPicBox
             // 
             this.PlayerPicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PlayerPicBox.Location = new System.Drawing.Point(43, 12);
+            this.PlayerPicBox.Image = ((System.Drawing.Image)(resources.GetObject("PlayerPicBox.Image")));
+            this.PlayerPicBox.Location = new System.Drawing.Point(47, 12);
             this.PlayerPicBox.Name = "PlayerPicBox";
             this.PlayerPicBox.Size = new System.Drawing.Size(100, 100);
+            this.PlayerPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayerPicBox.TabIndex = 10;
             this.PlayerPicBox.TabStop = false;
             // 

@@ -26,3 +26,4 @@ C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\WordLibrary\badwords.json
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\WordLibrary\manners.json
 C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\obj\Debug\Prototype1.csprojAssemblyReference.cache
+C:\Users\GaMac\OneDrive\GCU\HonoursProject\Prototypes\Prototype1\Prototype1\bin\Debug\Resources\profileIcon.png

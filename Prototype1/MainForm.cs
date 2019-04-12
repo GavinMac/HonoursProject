@@ -78,7 +78,7 @@ namespace Prototype1
             Player tempPlayerObj = new Player();
             var device = GetSelectedDevice();
             float volume = device.AudioMeterInformation.MasterPeakValue * 100;
-            RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume);
+            RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume, recEngine);
             Task.Run(() => rankCalc.CalculateRank());
             tempPlayerObj = rankCalc.Player;
             SetCurrentPlayer(tempPlayerObj, GetPlayerRankDetails(tempPlayerObj));
@@ -170,7 +170,19 @@ namespace Prototype1
                 var device = GetSelectedDevice();
                 float volume = device.AudioMeterInformation.MasterPeakValue * 100;              
                 Console.WriteLine("Volume: " + volume);
-                volumeMeter.Amplitude = volume;               
+                volumeMeter.Amplitude = volume;
+                if (volume >= 30)
+                {
+                    volumeMeter.ForeColor = Color.Red;
+                }
+                else if (volume >= 5)
+                {
+                    volumeMeter.ForeColor = Color.FromArgb(0, 192, 0);
+                }
+                else
+                {
+                    volumeMeter.ForeColor = Color.White;
+                }
             }
         }
 

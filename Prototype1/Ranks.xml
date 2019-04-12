@@ -4,9 +4,10 @@
   <ALIGNMENTS>
 
     <Lawful>
-      <Threshold>50</Threshold>
+      <FirstThreshold>50</FirstThreshold>
       <Good>
         <Threshold>200</Threshold>
+        <name>Lawful Good</name>
         <color>#b6e6ff</color>
         <description>
           Honorable and Humane
@@ -14,6 +15,7 @@
       </Good>
       <Neutral>
         <Threshold>50</Threshold>
+        <name>Lawful Neutral</name>
         <color>#00a8ff</color>
         <description>
           Practical and Humane
@@ -21,6 +23,7 @@
       </Neutral>
       <Evil>
         <Threshold>100</Threshold>
+        <name>Lawful Evil</name>
         <color>#003a58</color>
         <description>
           Independent and Humane
@@ -29,9 +32,10 @@
     </Lawful>
 
     <Neutral>
-      <Threshold>0</Threshold>
+      <FirstThreshold>0</FirstThreshold>
       <Good>
         <Threshold>49</Threshold>
+        <name>Neutral Good</name>
         <color>#f2f2f2</color>
         <description>
           Honorable and Realistic
@@ -39,6 +43,7 @@
       </Good>
       <Neutral>
         <Threshold>0</Threshold>
+        <name>Neutral</name>
         <color>#979797</color>
         <description>
           Practical and Realistic
@@ -46,6 +51,7 @@
       </Neutral>
       <Evil>
         <Threshold>-49</Threshold>
+        <name>Neutral Evil</name>
         <color>#202020</color>
         <description>
           Independent and Realistic
@@ -54,9 +60,10 @@
     </Neutral>
 
     <Chaotic>
-      <Threshold>-50</Threshold>
+      <FirstThreshold>-50</FirstThreshold>
       <Good>
         <Threshold>-100</Threshold>
+        <name>Chaotic Good</name>
         <color>#ffb6b6</color>
         <description>
           Honorable and Determined
@@ -64,6 +71,7 @@
       </Good>
       <Neutral>
         <Threshold>-50</Threshold>
+        <name>Chaotic Neutral</name>
         <color>#ff0000</color>
         <description>
           Practical and Determined
@@ -71,6 +79,7 @@
       </Neutral>
       <Evil>
         <Threshold>-200</Threshold>
+        <name>Chaotic Evil</name>
         <color>#580000</color>
         <description>
           Independent and Determined
