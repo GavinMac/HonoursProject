@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblRank = new System.Windows.Forms.Label();
             this.btnRandomize = new System.Windows.Forms.Button();
             this.lstViewPlayerRankDetails = new System.Windows.Forms.ListView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.btnResetStats = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::Prototype1.Properties.Resources.profileIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(97, 46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // lblUsername
             // 
@@ -72,7 +61,7 @@
             // 
             // btnRandomize
             // 
-            this.btnRandomize.Location = new System.Drawing.Point(122, 414);
+            this.btnRandomize.Location = new System.Drawing.Point(12, 414);
             this.btnRandomize.Name = "btnRandomize";
             this.btnRandomize.Size = new System.Drawing.Size(100, 35);
             this.btnRandomize.TabIndex = 3;
@@ -91,31 +80,54 @@
             this.lstViewPlayerRankDetails.UseCompatibleStateImageBehavior = false;
             this.lstViewPlayerRankDetails.View = System.Windows.Forms.View.List;
             // 
+            // profilePictureBox
+            // 
+            this.profilePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.profilePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePictureBox.Image = global::Prototype1.Properties.Resources.profileIcon;
+            this.profilePictureBox.Location = new System.Drawing.Point(97, 46);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(150, 150);
+            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilePictureBox.TabIndex = 5;
+            this.profilePictureBox.TabStop = false;
+            // 
+            // btnResetStats
+            // 
+            this.btnResetStats.Location = new System.Drawing.Point(232, 414);
+            this.btnResetStats.Name = "btnResetStats";
+            this.btnResetStats.Size = new System.Drawing.Size(100, 35);
+            this.btnResetStats.TabIndex = 6;
+            this.btnResetStats.Text = "Reset Stats";
+            this.btnResetStats.UseVisualStyleBackColor = true;
+            this.btnResetStats.Click += new System.EventHandler(this.btnResetStats_Click);
+            // 
             // ViewPlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(344, 461);
+            this.Controls.Add(this.btnResetStats);
+            this.Controls.Add(this.profilePictureBox);
             this.Controls.Add(this.lstViewPlayerRankDetails);
             this.Controls.Add(this.btnRandomize);
             this.Controls.Add(this.lblRank);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ViewPlayerForm";
             this.Text = "View Player";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblRank;
         private System.Windows.Forms.Button btnRandomize;
         private System.Windows.Forms.ListView lstViewPlayerRankDetails;
+        private System.Windows.Forms.PictureBox profilePictureBox;
+        private System.Windows.Forms.Button btnResetStats;
     }
 }

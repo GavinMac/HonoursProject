@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Prototype1
 {
@@ -42,7 +43,6 @@ namespace Prototype1
 
         public static Player GetPlayeById(int id)
         {
-            string idString = id.ToString();
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 Player resultPlayer = connection.Query<Player>(@"SELECT * FROM Players WHERE Id = @id", new { id }).FirstOrDefault();
@@ -76,6 +76,61 @@ namespace Prototype1
                 //connection.Execute("UPDATE Players SET Id = @Id", player);
                 connection.Open();
                 connection.Update(player);
+            }
+        }
+
+        public static void ResetAllStats()
+        {
+            using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = connection.Query<Player>("select * from Players", new DynamicParameters());
+                List<Player> outputPlayers = output.ToList();
+
+                try
+                {
+                    foreach (Player p in outputPlayers)
+                    {
+                        p.RankName = "-";
+                        p.TotalScore = 0;
+                        p.TalkativeScore = 0;
+                        p.ShoutScore = 0;
+                        p.QuietScore = 0;
+                        p.SwearCount = 0;
+                        p.MannersCount = 0;
+                        SQLiteDataAccess.SavePlayer(p);
+                    }
+                    MessageBox.Show("Reset Player Stats", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't reset player stats", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public static void ResetSinglePlayerStats(int id)
+        {
+            using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                Player p = connection.Query<Player>(@"SELECT * FROM Players WHERE Id = @id", new { id }).FirstOrDefault();
+
+                try
+                {
+                    p.RankName = "-";
+                    p.TotalScore = 0;
+                    p.TalkativeScore = 0;
+                    p.ShoutScore = 0;
+                    p.QuietScore = 0;
+                    p.SwearCount = 0;
+                    p.MannersCount = 0;
+                    SavePlayer(p);
+                    MessageBox.Show("Reset Player Stats", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Couldn't reset player stats", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

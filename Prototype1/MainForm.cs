@@ -74,12 +74,20 @@ namespace Prototype1
         /// <param name="e"></param>
         private void RecEngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            logTextBox.Text += e.Result.Text + " ";
-            var device = GetSelectedDevice();
-            float volume = device.AudioMeterInformation.MasterPeakValue * 100;
-            RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume, recEngine);
-            Task.Run(() => rankCalc.CalculateRank());
-            RefreshList(CurrentWorkingPlayer);
+            if(CurrentWorkingPlayer != null)
+            {
+                logTextBox.Text += e.Result.Text + " ";
+                var device = GetSelectedDevice();
+                float volume = device.AudioMeterInformation.MasterPeakValue * 100;
+                RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume, recEngine);
+                Task.Run(() => rankCalc.CalculateRank());
+                RefreshList(CurrentWorkingPlayer);
+            }
+            else
+            {
+                MessageBox.Show("There is currently no player loaded into the current working player. Please open a player in 'File > Open Player'", "No Player Open", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         
@@ -158,18 +166,21 @@ namespace Prototype1
             {
                 var device = GetSelectedDevice();
                 float volume = device.AudioMeterInformation.MasterPeakValue * 100;              
-                Console.WriteLine("Volume: " + volume);
+                //Console.WriteLine("Volume: " + volume);
                 volumeMeter.Amplitude = volume;
-                if (volume >= 30)
+                if (volume >= 50)
                 {
+                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.ShoutScore + 1;
+                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.QuietScore - 1;
                     volumeMeter.ForeColor = Color.Red;
                 }
-                else if (volume >= 5)
-                {
+                else if (volume >= 5) {
                     volumeMeter.ForeColor = Color.FromArgb(0, 192, 0);
-                }
+                }                   
                 else
                 {
+                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.QuietScore + 1;
+                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.ShoutScore - 1;
                     volumeMeter.ForeColor = Color.White;
                 }
             }
@@ -205,5 +216,9 @@ namespace Prototype1
             Close();
         }
 
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

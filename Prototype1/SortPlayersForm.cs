@@ -24,6 +24,7 @@ namespace Prototype1
 
         private void btnSort_Click(object sender, EventArgs e)
         {
+            ClearLists();
             SortPlayersByRank();
         }
 
@@ -126,14 +127,13 @@ namespace Prototype1
             }
         }
 
-        private void ClearListSelections()
+        private void ClearLists()
         {
-            lstBoxNeutral.ClearSelected();
-            lstBoxLawfulNeutral.ClearSelected();
-            lstBoxLawfulGood.ClearSelected();
-            lstBoxChaoticNeutral.ClearSelected();
-            lstBoxChaoticEvil.ClearSelected();
-            AllPlayersListBox.ClearSelected();
+            lstBoxNeutral.Items.Clear();
+            lstBoxLawfulNeutral.Items.Clear();
+            lstBoxLawfulGood.Items.Clear();
+            lstBoxChaoticNeutral.Items.Clear();
+            lstBoxChaoticEvil.Items.Clear();
         }
 
         private void btnOpenPlayer_Click(object sender, EventArgs e)

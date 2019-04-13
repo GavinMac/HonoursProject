@@ -87,7 +87,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rank.cs" />
     <Compile Include="RankCalculator.cs" />
     <Compile Include="SortPlayersForm.cs">
       <SubType>Form</SubType>
@@ -103,7 +102,7 @@
       <DependentUpon>ViewPlayerForm.cs</DependentUpon>
     </Compile>
     <Content Include="refreshIcon.png" />
-    <Content Include="Resources\profileIcon.png">
+    <Content Include="Images\profileIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="MainForm.resx">

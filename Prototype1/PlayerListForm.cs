@@ -77,5 +77,10 @@ namespace Prototype1
             SQLiteDataAccess.DeletePlayer(SelectedPlayer);
             LoadPlayersIntoList();
         }
+
+        private void btnResetStats_Click(object sender, EventArgs e)
+        {
+            SQLiteDataAccess.ResetAllStats();
+        }
     }
 }

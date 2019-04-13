@@ -34,6 +34,7 @@
             this.PlayerListBox = new System.Windows.Forms.ListBox();
             this.btnOpenPlayer = new System.Windows.Forms.Button();
             this.btnDeletePlayer = new System.Windows.Forms.Button();
+            this.btnResetStats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -121,12 +122,24 @@
             this.btnDeletePlayer.UseVisualStyleBackColor = false;
             this.btnDeletePlayer.Click += new System.EventHandler(this.btnDeletePlayer_Click);
             // 
+            // btnResetStats
+            // 
+            this.btnResetStats.ForeColor = System.Drawing.Color.Black;
+            this.btnResetStats.Location = new System.Drawing.Point(123, 44);
+            this.btnResetStats.Name = "btnResetStats";
+            this.btnResetStats.Size = new System.Drawing.Size(99, 26);
+            this.btnResetStats.TabIndex = 7;
+            this.btnResetStats.Text = "Reset ALL Stats";
+            this.btnResetStats.UseVisualStyleBackColor = true;
+            this.btnResetStats.Click += new System.EventHandler(this.btnResetStats_Click);
+            // 
             // PlayerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(344, 381);
+            this.Controls.Add(this.btnResetStats);
             this.Controls.Add(this.btnDeletePlayer);
             this.Controls.Add(this.btnOpenPlayer);
             this.Controls.Add(this.PlayerListBox);
@@ -137,7 +150,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PlayerListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "All Players";           
+            this.Text = "All Players";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +163,6 @@
         private System.Windows.Forms.ListBox PlayerListBox;
         private System.Windows.Forms.Button btnOpenPlayer;
         private System.Windows.Forms.Button btnDeletePlayer;
+        private System.Windows.Forms.Button btnResetStats;
     }
 }
