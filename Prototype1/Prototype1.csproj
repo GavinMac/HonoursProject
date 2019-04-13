@@ -89,7 +89,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rank.cs" />
     <Compile Include="RankCalculator.cs" />
+    <Compile Include="SortPlayersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SortPlayersForm.Designer.cs">
+      <DependentUpon>SortPlayersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLiteDataAccess.cs" />
+    <Compile Include="ViewPlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPlayerForm.Designer.cs">
+      <DependentUpon>ViewPlayerForm.cs</DependentUpon>
+    </Compile>
     <Content Include="refreshIcon.png" />
     <Content Include="Resources\profileIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -113,6 +125,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SortPlayersForm.resx">
+      <DependentUpon>SortPlayersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPlayerForm.resx">
+      <DependentUpon>ViewPlayerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <Content Include="PlayersDb.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

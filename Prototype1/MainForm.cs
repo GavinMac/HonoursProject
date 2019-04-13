@@ -98,8 +98,8 @@ namespace Prototype1
         //Show player list
         private void playersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayerListForm playerListForm = new PlayerListForm();
-            playerListForm.ShowDialog();
+            SortPlayersForm sortPlayersForm = new SortPlayersForm();
+            sortPlayersForm.ShowDialog();
         }
 
 

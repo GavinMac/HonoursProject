@@ -137,8 +137,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PlayerListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "All Players";
-            this.Load += new System.EventHandler(this.PlayerListForm_Load);
+            this.Text = "All Players";           
             this.ResumeLayout(false);
             this.PerformLayout();
 

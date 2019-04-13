@@ -50,10 +50,10 @@
             this.RankNameLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.UserRankListView = new System.Windows.Forms.ListView();
-            this.PlayerPicBox = new System.Windows.Forms.PictureBox();
             this.deviceComboBox = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.volumeMeter = new NAudio.Gui.VolumeMeter();
+            this.PlayerPicBox = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerPicBox)).BeginInit();
@@ -80,7 +80,7 @@
             this.logTextBox.ForeColor = System.Drawing.Color.White;
             this.logTextBox.Location = new System.Drawing.Point(222, 164);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(470, 265);
+            this.logTextBox.Size = new System.Drawing.Size(830, 505);
             this.logTextBox.TabIndex = 2;
             this.logTextBox.Text = "";
             // 
@@ -104,7 +104,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(704, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1064, 24);
             this.menuStrip.TabIndex = 10;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -200,7 +200,7 @@
             this.panel1.Controls.Add(this.PlayerPicBox);
             this.panel1.Location = new System.Drawing.Point(12, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 386);
+            this.panel1.Size = new System.Drawing.Size(200, 626);
             this.panel1.TabIndex = 11;
             // 
             // RankNameLabel
@@ -239,21 +239,10 @@
             this.UserRankListView.Location = new System.Drawing.Point(5, 184);
             this.UserRankListView.Margin = new System.Windows.Forms.Padding(5);
             this.UserRankListView.Name = "UserRankListView";
-            this.UserRankListView.Size = new System.Drawing.Size(188, 195);
+            this.UserRankListView.Size = new System.Drawing.Size(188, 435);
             this.UserRankListView.TabIndex = 11;
             this.UserRankListView.UseCompatibleStateImageBehavior = false;
             this.UserRankListView.View = System.Windows.Forms.View.List;
-            // 
-            // PlayerPicBox
-            // 
-            this.PlayerPicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PlayerPicBox.Image = ((System.Drawing.Image)(resources.GetObject("PlayerPicBox.Image")));
-            this.PlayerPicBox.Location = new System.Drawing.Point(47, 12);
-            this.PlayerPicBox.Name = "PlayerPicBox";
-            this.PlayerPicBox.Size = new System.Drawing.Size(100, 100);
-            this.PlayerPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PlayerPicBox.TabIndex = 10;
-            this.PlayerPicBox.TabStop = false;
             // 
             // deviceComboBox
             // 
@@ -281,12 +270,23 @@
             this.volumeMeter.TabIndex = 15;
             this.volumeMeter.Text = "volumeMeter";
             // 
+            // PlayerPicBox
+            // 
+            this.PlayerPicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlayerPicBox.Image = ((System.Drawing.Image)(resources.GetObject("PlayerPicBox.Image")));
+            this.PlayerPicBox.Location = new System.Drawing.Point(47, 12);
+            this.PlayerPicBox.Name = "PlayerPicBox";
+            this.PlayerPicBox.Size = new System.Drawing.Size(100, 100);
+            this.PlayerPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PlayerPicBox.TabIndex = 10;
+            this.PlayerPicBox.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(704, 441);
+            this.ClientSize = new System.Drawing.Size(1064, 681);
             this.Controls.Add(this.volumeMeter);
             this.Controls.Add(this.deviceComboBox);
             this.Controls.Add(this.logTextBox);

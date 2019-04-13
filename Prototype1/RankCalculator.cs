@@ -17,9 +17,11 @@ namespace Prototype1
         private float Volume { get; set; }
         public SpeechRecognitionEngine RecEngine = new SpeechRecognitionEngine();
 
-        private string[] swearWords = JsonConvert.DeserializeObject<string[]>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\badwords.json"));
+        //Set HasSets of strings from swear words and mannerly words JSON files
+        private HashSet<string> swearWords = JsonConvert.DeserializeObject<HashSet<string>>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\badwords.json"));
         private HashSet<string> mannersWords = JsonConvert.DeserializeObject<HashSet<string>>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\manners.json"));       
 
+        
         public RankCalculator(Player player, RecognitionResult speechInput, float volume, SpeechRecognitionEngine recEngine)
         {
             Player = player;
@@ -47,15 +49,7 @@ namespace Prototype1
         /// </summary>
         /// <returns></returns>
         private void CheckWords()
-        {
-            Choices swearWordChoices = new Choices();
-            swearWordChoices.Add(swearWords);
-
-            GrammarBuilder grammarBuilder = new GrammarBuilder(swearWordChoices);
-            Grammar grammar = new Grammar(grammarBuilder);
-
-            RecEngine.LoadGrammar(grammar);
-            
+        {             
 
             if (SpeechInput.Confidence > 0.5)
             {
@@ -132,26 +126,7 @@ namespace Prototype1
             else if (Player.TotalScore <= -100)
             {
                 Player.RankName = "Chaotic Evil";
-            }
-
-            //Setting rank by checking against the XML document
-            //XDocument xml = XDocument.Load(@"Ranks.xml");
-            //int score = Player.TotalScore;
-            
-            //if(score > 0)
-            //{
-            //    var elements = xml.Descendants().Where(x => x.Name.LocalName.Equals("FirstThreshold"));
-
-            //    foreach (var child in elements)
-            //    {
-            //        if(int.Parse(child.Value) >= score)
-            //        {
-            //            var ranks = child.Descendants().Where(x => x.Name.LocalName.Equals("Threshold"));
-            //        }
-            //    }
-
-            //}
-                   
+            }                 
 
 
         }

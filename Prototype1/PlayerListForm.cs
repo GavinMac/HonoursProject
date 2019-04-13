@@ -20,10 +20,6 @@ namespace Prototype1
         public PlayerListForm()
         {
             InitializeComponent();
-        }
-
-        private void PlayerListForm_Load(object sender, EventArgs e)
-        {
             LoadPlayersIntoList();
         }
 
