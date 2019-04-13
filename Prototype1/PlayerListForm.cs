@@ -35,7 +35,8 @@ namespace Prototype1
 
             if (playerList != null)
             {
-                PlayerListBox.DataSource = playerList;
+                List<Player> SortedList = playerList.OrderBy(p => p.Username).ToList();
+                PlayerListBox.DataSource = SortedList;
                 PlayerListBox.DisplayMember = "Username";
             }
             else

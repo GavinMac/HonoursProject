@@ -80,7 +80,7 @@ namespace Prototype1
         private void RefreshListView()
         {
             List<string> RankDetails = GetPlayerRankDetails(CurrentPlayer);
-
+            lstViewPlayerRankDetails.Clear();
             foreach (var i in RankDetails)
             {
                 ListViewItem item = new ListViewItem(i);

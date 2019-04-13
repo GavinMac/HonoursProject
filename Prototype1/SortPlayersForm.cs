@@ -49,6 +49,12 @@ namespace Prototype1
             {
                 switch (p.RankName)
                 {
+                    case null :
+                        lstBoxNeutral.Items.Add(p);
+                        break;
+                    case "-":
+                        lstBoxNeutral.Items.Add(p);
+                        break;
                     case "Lawful Good":
                         lstBoxLawfulGood.Items.Add(p);
                         break;
