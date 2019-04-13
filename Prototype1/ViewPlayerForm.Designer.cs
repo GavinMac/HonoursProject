@@ -105,7 +105,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ViewPlayerForm";
             this.Text = "View Player";
-            this.Load += new System.EventHandler(this.ViewPlayerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
