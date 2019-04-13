@@ -40,6 +40,17 @@ namespace Prototype1
 
         }
 
+        public static Player GetPlayeById(int id)
+        {
+            string idString = id.ToString();
+            using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
+            {
+                Player resultPlayer = connection.Query<Player>(@"SELECT * FROM Players WHERE Id = @id", new { id }).FirstOrDefault();
+
+                return resultPlayer;
+            }
+        }
+
         /// <summary>
         /// Creates a new player in the database
         /// </summary>

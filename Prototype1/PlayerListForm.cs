@@ -21,6 +21,7 @@ namespace Prototype1
         {
             InitializeComponent();
             LoadPlayersIntoList();
+            btnOpenPlayer.Enabled = false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -52,8 +53,9 @@ namespace Prototype1
         {
             if (PlayerListBox.SelectedItem != null)
             {
-                int itemIndex = PlayerListBox.SelectedIndex;
-                SelectedPlayer = playerList[itemIndex];
+                //int itemIndex = PlayerListBox.SelectedIndex;
+                //SelectedPlayer = playerList[itemIndex];
+                SelectedPlayer = (Player)PlayerListBox.SelectedItem;
             }
             else
             {

@@ -75,16 +75,11 @@ namespace Prototype1
         private void RecEngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             logTextBox.Text += e.Result.Text + " ";
-            Player tempPlayerObj = new Player();
             var device = GetSelectedDevice();
             float volume = device.AudioMeterInformation.MasterPeakValue * 100;
             RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume, recEngine);
             Task.Run(() => rankCalc.CalculateRank());
-            tempPlayerObj = rankCalc.Player;
-            SetCurrentPlayer(tempPlayerObj, GetPlayerRankDetails(tempPlayerObj));
-
-            //Player rank details will be updated and saved straight into the database as they speak.
-            SQLiteDataAccess.SavePlayer(tempPlayerObj);       
+            RefreshList(CurrentWorkingPlayer);
         }
 
         
@@ -110,8 +105,8 @@ namespace Prototype1
             if (playerListForm.ShowDialog() == DialogResult.OK)
             {
                 Player currentPlayer = new Player();
-                currentPlayer = playerListForm.SelectedPlayer;
-                SetCurrentPlayer(currentPlayer, GetPlayerRankDetails(currentPlayer));
+                currentPlayer = playerListForm.SelectedPlayer;              
+                SetCurrentPlayer(currentPlayer);
                 logTextBox.Clear();
             }
             else
@@ -126,19 +121,13 @@ namespace Prototype1
         /// </summary>
         /// <param name="player"></param>
         /// <param name="RankDetails"></param>
-        private void SetCurrentPlayer(Player player, List<string> RankDetails)
+        private void SetCurrentPlayer(Player player)
         {
             CurrentWorkingPlayer = player;
             UserRankListView.Clear();
             UsernameLabel.Text = player.Username;
             RankNameLabel.Text = player.RankName;
-            
-            foreach(var i in RankDetails)
-            {
-                ListViewItem item = new ListViewItem(i);
-                UserRankListView.Items.Add(item);
-            }
-
+            RefreshList(player);
         }
 
         /// <summary>
@@ -194,6 +183,19 @@ namespace Prototype1
         {
             MMDevice device = (MMDevice)deviceComboBox.SelectedItem;
             return device;
+        }
+
+        private void RefreshList(Player player)
+        {
+            Player refreshPlayer = SQLiteDataAccess.GetPlayeById(CurrentWorkingPlayer.Id);
+            UserRankListView.Clear();
+            List<string> RankDetails = GetPlayerRankDetails(refreshPlayer);
+
+            foreach (var i in RankDetails)
+            {
+                ListViewItem item = new ListViewItem(i);
+                UserRankListView.Items.Add(item);
+            }
         }
 
 

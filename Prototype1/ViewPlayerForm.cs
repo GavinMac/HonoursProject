@@ -13,7 +13,6 @@ namespace Prototype1
     public partial class ViewPlayerForm : Form
     {
         private Player CurrentPlayer = new Player();
-        private SQLiteDataAccess = new SQLiteDataAccess();
 
         public ViewPlayerForm(Player player)
         {
@@ -23,21 +22,20 @@ namespace Prototype1
             lblUsername.Text = CurrentPlayer.Username;
             lblRank.Text = CurrentPlayer.RankName;
 
-            List<string> RankDetails = GetPlayerRankDetails(CurrentPlayer);
-
-            foreach (var i in RankDetails)
-            {
-                ListViewItem item = new ListViewItem(i);
-                lstViewPlayerRankDetails.Items.Add(item);
-            }
-
+            RefreshListView();
+            
         }
 
+        /// <summary>
+        /// Randomizes a the current player's scores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRandomize_Click(object sender, EventArgs e)
         {
-
-            Player updatedPlayer = RandomScoresPlayer();
-
+            Player updatedPlayer = RandomizePlayerScores(CurrentPlayer);
+            SQLiteDataAccess.SavePlayer(updatedPlayer);
+            RefreshListView();
         }
 
         /// <summary>
@@ -57,13 +55,37 @@ namespace Prototype1
             return returnList;
         }
 
+        /// <summary>
+        /// Randomizes input player scores and returns the player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns>Player with random scores</returns>
+        private Player RandomizePlayerScores(Player player)
+        {       
+            Random rnd = new Random();
 
-        private Player RandomScoresPlayer()
+            player.MannersCount = rnd.Next(0, 200);
+            player.QuietScore = rnd.Next(0, 200);
+            player.ShoutScore = rnd.Next(0, 200);
+            player.SwearCount = rnd.Next(0, 200);
+            player.TalkativeScore = rnd.Next(0, 200);       
+
+            return player;
+        }
+
+
+        /// <summary>
+        /// Refreshes the list with player details from database
+        /// </summary>
+        private void RefreshListView()
         {
-            Player tempPlayer = new Player();
+            List<string> RankDetails = GetPlayerRankDetails(CurrentPlayer);
 
-
-            return tempPlayer;
+            foreach (var i in RankDetails)
+            {
+                ListViewItem item = new ListViewItem(i);
+                lstViewPlayerRankDetails.Items.Add(item);
+            }
         }
 
 

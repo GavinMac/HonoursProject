@@ -35,6 +35,7 @@ namespace Prototype1
             Player.TalkativeScore = Player.TalkativeScore + SpeechInput.Words.Count;
 
             await Task.Run(() => RunChecker());
+            UpdatePlayerInDb();
         }
 
         private void RunChecker()
@@ -50,16 +51,15 @@ namespace Prototype1
         /// <returns></returns>
         private void CheckWords()
         {             
-
             if (SpeechInput.Confidence > 0.5)
             {
                 foreach (RecognizedWordUnit word in SpeechInput.Words)
                 {
-                    if (word.Equals(swearWords.Any()))
+                    if (swearWords.Contains(word.Text.ToLower()))
                     {
                         Player.SwearCount = Player.SwearCount + 1;
                     }
-                    else if (word.Equals(mannersWords.Any()));
+                    else if (mannersWords.Contains(word.Text.ToLower()))
                     {
                         Player.MannersCount = Player.MannersCount + 1;
                     }
@@ -128,7 +128,12 @@ namespace Prototype1
                 Player.RankName = "Chaotic Evil";
             }                 
 
+        }
 
+        private void UpdatePlayerInDb()
+        {
+            //Player rank details will be updated and saved straight into the database as they speak.
+            SQLiteDataAccess.SavePlayer(Player);
         }
 
     }
