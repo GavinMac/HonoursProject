@@ -39,7 +39,7 @@ namespace Prototype1
 
         }
 
-        //Enable mic and stat speech recognition if a device is chosen.
+        //Enable mic and start speech recognition if a device is chosen.
         private void btnEnableMic_Click(object sender, EventArgs e)
         {
 
@@ -50,6 +50,7 @@ namespace Prototype1
                 btnEnableMic.Enabled = false;
                 timer.Enabled = true;
                 timer.Start();
+                RunOnce.SetTimer();
             }
             else
             {
@@ -79,9 +80,9 @@ namespace Prototype1
                 logTextBox.Text += e.Result.Text + " ";
                 var device = GetSelectedDevice();
                 float volume = device.AudioMeterInformation.MasterPeakValue * 100;
-                RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, volume, recEngine);
+                RankCalculator rankCalc = new RankCalculator(CurrentWorkingPlayer, e.Result, recEngine);
                 Task.Run(() => rankCalc.CalculateRank());
-                RefreshList(CurrentWorkingPlayer);
+                RefreshUi(CurrentWorkingPlayer);
             }
             else
             {
@@ -135,7 +136,7 @@ namespace Prototype1
             UserRankListView.Clear();
             UsernameLabel.Text = player.Username;
             RankNameLabel.Text = player.RankName;
-            RefreshList(player);
+            RefreshUi(player);
         }
 
         /// <summary>
@@ -166,12 +167,10 @@ namespace Prototype1
             {
                 var device = GetSelectedDevice();
                 float volume = device.AudioMeterInformation.MasterPeakValue * 100;              
-                //Console.WriteLine("Volume: " + volume);
                 volumeMeter.Amplitude = volume;
                 if (volume >= 50)
                 {
-                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.ShoutScore + 1;
-                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.QuietScore - 1;
+                    RunOnce.CheckVolumesOnce(CurrentWorkingPlayer, volume);
                     volumeMeter.ForeColor = Color.Red;
                 }
                 else if (volume >= 5) {
@@ -179,8 +178,7 @@ namespace Prototype1
                 }                   
                 else
                 {
-                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.QuietScore + 1;
-                    CurrentWorkingPlayer.ShoutScore = CurrentWorkingPlayer.ShoutScore - 1;
+                    RunOnce.CheckVolumesOnce(CurrentWorkingPlayer, volume);
                     volumeMeter.ForeColor = Color.White;
                 }
             }
@@ -196,11 +194,12 @@ namespace Prototype1
             return device;
         }
 
-        private void RefreshList(Player player)
+        private void RefreshUi(Player player)
         {
             Player refreshPlayer = SQLiteDataAccess.GetPlayeById(CurrentWorkingPlayer.Id);
             UserRankListView.Clear();
             List<string> RankDetails = GetPlayerRankDetails(refreshPlayer);
+            RankNameLabel.Text = refreshPlayer.RankName;
 
             foreach (var i in RankDetails)
             {
@@ -216,9 +215,5 @@ namespace Prototype1
             Close();
         }
 
-        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }

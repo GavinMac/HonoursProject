@@ -91,6 +91,13 @@ namespace Prototype1
         private void btnResetStats_Click(object sender, EventArgs e)
         {
             SQLiteDataAccess.ResetSinglePlayerStats(CurrentPlayer.Id);
+            RefreshListView();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CurrentPlayer.Username = txtBoxEditName.Text;
+            SQLiteDataAccess.SavePlayer(CurrentPlayer);
         }
     }
 }

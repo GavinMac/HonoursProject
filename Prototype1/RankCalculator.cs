@@ -14,7 +14,7 @@ namespace Prototype1
     {
         public Player Player { get; set; }
         private RecognitionResult SpeechInput { get; set; }
-        private float Volume { get; set; }
+        //private float Volume { get; set; }
         public SpeechRecognitionEngine RecEngine = new SpeechRecognitionEngine();
 
         //Set HasSets of strings from swear words and mannerly words JSON files
@@ -22,11 +22,11 @@ namespace Prototype1
         private HashSet<string> mannersWords = JsonConvert.DeserializeObject<HashSet<string>>(File.ReadAllText(Directory.GetCurrentDirectory() + @"\WordLibrary\manners.json"));       
 
         
-        public RankCalculator(Player player, RecognitionResult speechInput, float volume, SpeechRecognitionEngine recEngine)
+        public RankCalculator(Player player, RecognitionResult speechInput, SpeechRecognitionEngine recEngine)
         {
             Player = player;
             SpeechInput = speechInput;
-            Volume = volume;
+            //Volume = volume;
             recEngine = RecEngine;
         }
 
@@ -35,7 +35,7 @@ namespace Prototype1
             Player.TalkativeScore = Player.TalkativeScore + SpeechInput.Words.Count;
 
             await Task.Run(() => RunChecker());
-            CalculateTotalScore();
+            SetRankName();
             UpdatePlayerInDb();
         }
 
@@ -43,7 +43,7 @@ namespace Prototype1
         {
             CheckWords();
             //CheckVolume();
-            SetRankName();
+            CalculateTotalScore();
         }
 
         /// <summary>
@@ -58,12 +58,12 @@ namespace Prototype1
                 {
                     if (swearWords.Contains(word.Text.ToLower()))
                     {
-                        Player.SwearCount = Player.SwearCount + 1;
+                        Player.SwearCount = Player.SwearCount + 2;
                         Player.MannersCount = Player.MannersCount - 1;
                     }
                     else if (mannersWords.Contains(word.Text.ToLower()))
                     {
-                        Player.MannersCount = Player.MannersCount + 1;
+                        Player.MannersCount = Player.MannersCount + 2;
                         Player.SwearCount = Player.SwearCount - 1;
                     }
                 }
@@ -76,20 +76,21 @@ namespace Prototype1
         ///// <returns></returns>
         //private void CheckVolume()
         //{
-        //    if (Volume > 30)
+        //    if (Volume >= 50)
         //    {
-        //        Player.ShoutScore = Player.ShoutScore + (int)Math.Round(Volume);
+        //        Player.ShoutScore = Player.ShoutScore + 2;
+        //        Player.QuietScore = Player.QuietScore - 1;
         //    }
-        //    else if (Volume <= 2)
+        //    else if (Volume >= 5 && Volume < 50)
         //    {
-        //        Player.QuietScore = Player.QuietScore + (int)Math.Round(Volume);
-        //    }
-        //    else
-        //    {
-        //        Player.TalkativeScore = Player.TalkativeScore + (int)Math.Round(Volume);
+        //        Player.QuietScore = Player.QuietScore + 2;
+        //        Player.ShoutScore = Player.ShoutScore - 2;
         //    }
         //}
 
+        /// <summary>
+        /// Calculates the total score for a player
+        /// </summary>
         private void CalculateTotalScore()
         {
             if(SpeechInput.Confidence >= 0.5)
@@ -131,7 +132,7 @@ namespace Prototype1
                     Player.TotalScore = Player.TotalScore + wordChoiceModifier;
                 }
 
-                Console.WriteLine("loudnessModifier: " + loudnessModifier + "\nwordChoiceModifier: " + wordChoiceModifier);
+                //Console.WriteLine("loudnessModifier: " + loudnessModifier + "\nwordChoiceModifier: " + wordChoiceModifier);
 
                 
             }           

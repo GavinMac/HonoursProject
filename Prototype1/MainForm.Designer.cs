@@ -53,6 +53,8 @@
             this.deviceComboBox = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.volumeMeter = new NAudio.Gui.VolumeMeter();
+            this.howToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerPicBox)).BeginInit();
@@ -183,10 +185,13 @@
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.howToToolStripMenuItem,
+            this.aboutToolStripMenuItem1});
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Text = "Help";
             // 
             // panel1
             // 
@@ -280,6 +285,18 @@
             this.volumeMeter.TabIndex = 15;
             this.volumeMeter.Text = "volumeMeter";
             // 
+            // howToToolStripMenuItem
+            // 
+            this.howToToolStripMenuItem.Name = "howToToolStripMenuItem";
+            this.howToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.howToToolStripMenuItem.Text = "How to";
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Text = "About";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +313,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Honors Prototype 1";
+            this.Text = "Honors Prototype";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -332,5 +349,7 @@
         private System.Windows.Forms.ComboBox deviceComboBox;
         private System.Windows.Forms.Timer timer;
         private NAudio.Gui.VolumeMeter volumeMeter;
+        private System.Windows.Forms.ToolStripMenuItem howToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
     }
 }
