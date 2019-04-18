@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public partial class SortPlayersForm : Form
@@ -22,12 +29,20 @@ namespace Prototype1
             LoadPlayersIntoList();
         }
 
+        /// <summary>
+        /// Clears the rank lists and sorts all players
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSort_Click(object sender, EventArgs e)
         {
             ClearLists();
             SortPlayersByRank();
         }
 
+        /// <summary>
+        /// Loads all players from the db into the all players list box
+        /// </summary>
         private void LoadPlayersIntoList()
         {
             playerList = SQLiteDataAccess.LoadPlayers();
@@ -43,7 +58,9 @@ namespace Prototype1
             }
         }
 
-
+        /// <summary>
+        /// Sorts players into rank list boxes
+        /// </summary>
         private void SortPlayersByRank()
         {
             foreach(Player p in playerList)
@@ -127,6 +144,9 @@ namespace Prototype1
             }
         }
 
+        /// <summary>
+        /// Clears rank list boxes
+        /// </summary>
         private void ClearLists()
         {
             lstBoxNeutral.Items.Clear();
@@ -136,6 +156,7 @@ namespace Prototype1
             lstBoxChaoticEvil.Items.Clear();
         }
 
+        //Opens any player that is selected in any list. Only the last selected player will be opened.
         private void btnOpenPlayer_Click(object sender, EventArgs e)
         {
             ViewPlayerForm viewPlayerForm = new ViewPlayerForm(SelectedPlayer);

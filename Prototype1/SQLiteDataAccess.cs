@@ -10,6 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     class SQLiteDataAccess
@@ -35,7 +42,6 @@ namespace Prototype1
             using(IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = connection.Query<Player>("select * from Players", new DynamicParameters());
-
                 return output.ToList();
             }
 
@@ -46,7 +52,6 @@ namespace Prototype1
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
                 Player resultPlayer = connection.Query<Player>(@"SELECT * FROM Players WHERE Id = @id", new { id }).FirstOrDefault();
-
                 return resultPlayer;
             }
         }
@@ -73,7 +78,6 @@ namespace Prototype1
         {
             using (IDbConnection connection = new SQLiteConnection(LoadConnectionString()))
             {
-                //connection.Execute("UPDATE Players SET Id = @Id", player);
                 connection.Open();
                 connection.Update(player);
             }
@@ -145,12 +149,6 @@ namespace Prototype1
                 connection.Execute("DELETE FROM Players WHERE Id = @Id", player);        
             }
         }
-
-
-
-
-
-
 
     }
 }

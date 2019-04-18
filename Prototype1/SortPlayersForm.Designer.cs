@@ -73,8 +73,10 @@
             this.lstBoxChaoticEvil.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lstBoxChaoticEvil.BackColor = System.Drawing.Color.DimGray;
             this.lstBoxChaoticEvil.DisplayMember = "Username";
+            this.lstBoxChaoticEvil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxChaoticEvil.ForeColor = System.Drawing.Color.White;
             this.lstBoxChaoticEvil.FormattingEnabled = true;
+            this.lstBoxChaoticEvil.ItemHeight = 16;
             this.lstBoxChaoticEvil.Location = new System.Drawing.Point(15, 277);
             this.lstBoxChaoticEvil.Name = "lstBoxChaoticEvil";
             this.lstBoxChaoticEvil.Size = new System.Drawing.Size(150, 212);
@@ -86,8 +88,10 @@
             this.lstBoxChaoticNeutral.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lstBoxChaoticNeutral.BackColor = System.Drawing.Color.DimGray;
             this.lstBoxChaoticNeutral.DisplayMember = "Username";
+            this.lstBoxChaoticNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxChaoticNeutral.ForeColor = System.Drawing.Color.White;
             this.lstBoxChaoticNeutral.FormattingEnabled = true;
+            this.lstBoxChaoticNeutral.ItemHeight = 16;
             this.lstBoxChaoticNeutral.Location = new System.Drawing.Point(171, 277);
             this.lstBoxChaoticNeutral.Name = "lstBoxChaoticNeutral";
             this.lstBoxChaoticNeutral.Size = new System.Drawing.Size(150, 212);
@@ -99,8 +103,10 @@
             this.lstBoxNeutral.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lstBoxNeutral.BackColor = System.Drawing.Color.DimGray;
             this.lstBoxNeutral.DisplayMember = "Username";
+            this.lstBoxNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxNeutral.ForeColor = System.Drawing.Color.White;
             this.lstBoxNeutral.FormattingEnabled = true;
+            this.lstBoxNeutral.ItemHeight = 16;
             this.lstBoxNeutral.Location = new System.Drawing.Point(327, 277);
             this.lstBoxNeutral.Name = "lstBoxNeutral";
             this.lstBoxNeutral.Size = new System.Drawing.Size(150, 212);
@@ -112,8 +118,10 @@
             this.lstBoxLawfulNeutral.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lstBoxLawfulNeutral.BackColor = System.Drawing.Color.DimGray;
             this.lstBoxLawfulNeutral.DisplayMember = "Username";
+            this.lstBoxLawfulNeutral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxLawfulNeutral.ForeColor = System.Drawing.Color.White;
             this.lstBoxLawfulNeutral.FormattingEnabled = true;
+            this.lstBoxLawfulNeutral.ItemHeight = 16;
             this.lstBoxLawfulNeutral.Location = new System.Drawing.Point(483, 277);
             this.lstBoxLawfulNeutral.Name = "lstBoxLawfulNeutral";
             this.lstBoxLawfulNeutral.Size = new System.Drawing.Size(150, 212);
@@ -125,8 +133,10 @@
             this.lstBoxLawfulGood.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lstBoxLawfulGood.BackColor = System.Drawing.Color.DimGray;
             this.lstBoxLawfulGood.DisplayMember = "Username";
+            this.lstBoxLawfulGood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxLawfulGood.ForeColor = System.Drawing.Color.White;
             this.lstBoxLawfulGood.FormattingEnabled = true;
+            this.lstBoxLawfulGood.ItemHeight = 16;
             this.lstBoxLawfulGood.Location = new System.Drawing.Point(639, 277);
             this.lstBoxLawfulGood.Name = "lstBoxLawfulGood";
             this.lstBoxLawfulGood.Size = new System.Drawing.Size(150, 212);
@@ -224,7 +234,7 @@
             this.Controls.Add(this.btnSort);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SortPlayersForm";
-            this.Text = "SortPlayersForm";
+            this.Text = "Player Lobby";
             this.ResumeLayout(false);
 
         }

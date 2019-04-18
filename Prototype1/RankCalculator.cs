@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public class RankCalculator
     {
         public Player Player { get; set; }
         private RecognitionResult SpeechInput { get; set; }
-        //private float Volume { get; set; }
         public SpeechRecognitionEngine RecEngine = new SpeechRecognitionEngine();
 
         //Set HasSets of strings from swear words and mannerly words JSON files
@@ -26,7 +32,6 @@ namespace Prototype1
         {
             Player = player;
             SpeechInput = speechInput;
-            //Volume = volume;
             recEngine = RecEngine;
         }
 
@@ -70,24 +75,6 @@ namespace Prototype1
             }
         }
 
-        ///// <summary>
-        ///// Check the input volume from the user input to determine shouting/being quiet.
-        ///// </summary>
-        ///// <returns></returns>
-        //private void CheckVolume()
-        //{
-        //    if (Volume >= 50)
-        //    {
-        //        Player.ShoutScore = Player.ShoutScore + 2;
-        //        Player.QuietScore = Player.QuietScore - 1;
-        //    }
-        //    else if (Volume >= 5 && Volume < 50)
-        //    {
-        //        Player.QuietScore = Player.QuietScore + 2;
-        //        Player.ShoutScore = Player.ShoutScore - 2;
-        //    }
-        //}
-
         /// <summary>
         /// Calculates the total score for a player
         /// </summary>
@@ -100,12 +87,6 @@ namespace Prototype1
                 int QS = Player.QuietScore;
                 int SC = Player.SwearCount;
                 int MC = Player.MannersCount;
-
-                int diff_SSQS = Math.Abs(SS - QS); //Difference between ShoutScore and QuietScore
-                int diff_QSSS = Math.Abs(QS - SS); //Difference between Quietcore and ShoutScore
-
-                int diff_SCMC = Math.Abs(SC - MC); //Difference between SwearCount and MannersCount
-                int diff_MCSC = Math.Abs(MC - SC); //Difference between MannersCount and SwearCount
 
                 int loudnessModifier = 0;
                 int wordChoiceModifier = 0;
@@ -130,16 +111,17 @@ namespace Prototype1
                 {
                     wordChoiceModifier = MC / 2;
                     Player.TotalScore = Player.TotalScore + wordChoiceModifier;
-                }
-
-                //Console.WriteLine("loudnessModifier: " + loudnessModifier + "\nwordChoiceModifier: " + wordChoiceModifier);
-
+                }            
                 
             }           
             
 
         }
 
+
+        /// <summary>
+        /// Sets the players RankName based on their total score, if their TotalScore reaches a ranks threshold.
+        /// </summary>
         private void SetRankName()
         {
 
@@ -166,9 +148,9 @@ namespace Prototype1
 
         }
 
+        //Allows the player in this context to be saved when this is called.
         private void UpdatePlayerInDb()
-        {
-            //Player rank details will be updated and saved straight into the database as they speak.
+        {            
             SQLiteDataAccess.SavePlayer(Player);
         }
 

@@ -4,6 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public class Player

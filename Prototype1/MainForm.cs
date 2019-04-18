@@ -13,7 +13,13 @@ using System.IO;
 using NAudio.CoreAudioApi;
 using NAudio;
 using NAudio.Wave;
-
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public partial class MainForm : Form

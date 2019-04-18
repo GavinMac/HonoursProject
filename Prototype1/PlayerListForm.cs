@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public partial class PlayerListForm : Form
@@ -73,7 +80,7 @@ namespace Prototype1
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
             int itemIndex = PlayerListBox.SelectedIndex;
-            SelectedPlayer = playerList[itemIndex];
+            SelectedPlayer = (Player)PlayerListBox.SelectedItem;
             SQLiteDataAccess.DeletePlayer(SelectedPlayer);
             LoadPlayersIntoList();
         }

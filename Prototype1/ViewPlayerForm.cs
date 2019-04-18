@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//////////////////////
+// Gavin Macleod    //
+//////////////////////
+// S1715408         //
+// Honours Project  //
+// BSc Computing    //
+//////////////////////
 namespace Prototype1
 {
     public partial class ViewPlayerForm : Form
@@ -19,7 +26,7 @@ namespace Prototype1
             InitializeComponent();
             CurrentPlayer = player;
 
-            lblUsername.Text = CurrentPlayer.Username;
+            txtBoxEditName.Text = CurrentPlayer.Username;
             lblRank.Text = CurrentPlayer.RankName;
 
             RefreshListView();
